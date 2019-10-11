@@ -1,7 +1,7 @@
 //
-// Created by Kang on 10/5/2019.
+// Created by Kang Wang on 10/5/2019.
+// setting up matrix operations
 //
-#include <array>
 #include "matrix.hpp"
 // default constructor initializing 1 * 1 2d vevtor with value 0
 matrix::matrix(): row{1}, col{1}{
@@ -13,11 +13,6 @@ matrix::matrix(int n) {
         throw "n can't be 0 or negative";
     row = col = n;
     matri.resize(n, vector<double>(n, 0.0));
-//    for (int i = 0; i < matri.size(); i++) {
-//        for (int j = 0; j < matri[i].size(); j++)
-//            cout << matri[i][j] << " ";
-//        cout << endl;
-//    }
 }
 // constructing r * c vector with 0.0s
 matrix::matrix(int r, int c) {
@@ -28,11 +23,6 @@ matrix::matrix(int r, int c) {
     row = r;
     col = c;
     matri.resize(r, vector<double>(c, 0.0));
-//    for (int i = 0; i < matri.size(); i++) {
-//        for (int j = 0; j < matri[i].size(); j++)
-//            cout << matri[i][j] << " ";
-//        cout << endl;
-//    }
 }
 // constructing a 2d vector that accept an double array
 matrix::matrix(vector<double> doubleArr) {
@@ -47,15 +37,9 @@ matrix::matrix(vector<double> doubleArr) {
         for (int j = 0; j < matri[i].size(); j++)
             matri[i][j] = doubleArr[i*matri[i].size()+j];
     }
-//    for (int i = 0; i < matri.size(); i++) {
-//        for (int j = 0; j < matri[i].size(); j++)
-//            cout << matri[i][j] << " ";
-//        cout << endl;
-//    }
 }
 // default destructor
 matrix::~matrix() {
-    cout << "Destructor\n";
 }
 // mutator for setting value on a specific location
 void matrix::setValue(int r, int c, double n) {
@@ -81,7 +65,7 @@ void matrix::clear() {
     }
 }
 // overloading insertion
-ostream& operator<<(ostream &os, const matrix &m) {
+ostream& operator<< (ostream &os, const matrix &m) {
     for (int i = 0; i < m.matri.size(); i++) {
         for (int j = 0; j < m.matri[i].size(); j++)
             cout << m.matri[i][j] << " ";
@@ -106,10 +90,12 @@ bool operator!= (matrix const &m, matrix const &n) {
 }
 // mySwap function
 void mySwap(matrix& first, matrix& second) {
+    swap(first.row, second.row);
+    swap(first.col, second.col);
     swap(first.matri, second.matri); //
 }
 // overloading += operator
-void operator +=(matrix &m, matrix const &n) {
+void operator+= (matrix &m, matrix const &n) {
     if (m.matri.size() != n.matri.size() || m.matri[0].size() != n.matri[0].size())
         throw "matrix not same size";
     else {
@@ -121,7 +107,7 @@ void operator +=(matrix &m, matrix const &n) {
     }
 }
 // overloading + operator
-matrix operator +(matrix const &m, matrix const &n) {
+matrix operator+ (matrix const &m, matrix const &n) {
     if (m.matri.size() != n.matri.size() || m.matri[0].size() != n.matri[0].size())
         throw "matrix not same size";
     else {
@@ -134,8 +120,8 @@ matrix operator +(matrix const &m, matrix const &n) {
         return dm;
     }
 }
-// overloading += operator
-void operator -=(matrix &m, matrix const &n) {
+// overloading -= operator
+void operator-= (matrix &m, matrix const &n) {
     if (m.matri.size() != n.matri.size() || m.matri[0].size() != n.matri[0].size())
         throw "matrix not same size";
     else {
@@ -147,7 +133,7 @@ void operator -=(matrix &m, matrix const &n) {
     }
 }
 // overloading + operator
-matrix operator -(matrix const &m, matrix const &n) {
+matrix operator- (matrix const &m, matrix const &n) {
     if (m.matri.size() != n.matri.size() || m.matri[0].size() != n.matri[0].size())
         throw "matrix not same size";
     else {
@@ -161,7 +147,7 @@ matrix operator -(matrix const &m, matrix const &n) {
     }
 }
 // overloading * operator
-matrix operator *(matrix const &m, matrix const &n) {
+matrix operator* (matrix const &m, matrix const &n) {
     if(m.matri[0].size() != n.matri.size())
         throw "matrix can not multiply";
     else {
@@ -178,7 +164,7 @@ matrix operator *(matrix const &m, matrix const &n) {
     }
 }
 // overloading *= operator
-void operator *=(matrix &m, matrix const &n) {
+void operator*= (matrix &m, matrix const &n) {
     if(m.matri[0].size() != n.matri.size())
         throw "matrix can not multiply";
     else

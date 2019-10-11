@@ -3,4 +3,4 @@ project(PageRankAlgo)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(PageRankAlgo main.cpp matrix.cpp matrix.hpp)
+add_executable(PageRankAlgo main.cpp matrix.cpp matrix.hpp operations.cpp operations.hpp)

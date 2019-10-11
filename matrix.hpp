@@ -1,18 +1,16 @@
 //
-// Created by msi on 10/5/2019.
-// Header file for
+// Created by Kang Wang on 10/5/2019.
+// setting up matrix operations
 //
 #include <vector>
 #include <iostream>
-#include <cmath>
 #include <cstdlib>
 #include <cmath>
 #include <limits>
-#include <cassert>
 using namespace std;
 #ifndef PAGERANKALGO_MATRIX_HPP
 #define PAGERANKALGO_MATRIX_HPP
-
+// typedef double 2d vector
 typedef vector<vector<double> > doubleMatrix;
 class matrix {
 private:
@@ -29,6 +27,9 @@ public:
     matrix(vector<double>);
     // default destructor
     ~matrix();
+    // accessors for row and col
+    inline int getRow() { return row;}
+    inline int getCol() { return col; }
     // mutator for setting value on a specific location
     void setValue(int r, int c, double n);
     // accessor for getting value on a specific location
@@ -86,6 +87,4 @@ public:
     // overloading *= operator
     friend void operator *=(matrix &m, matrix const &n);
 };
-
-
 #endif //PAGERANKALGO_MATRIX_HPP
