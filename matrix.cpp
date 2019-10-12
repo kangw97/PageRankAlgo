@@ -50,7 +50,7 @@ void matrix::setValue(int r, int c, double n) {
     matri[r][c] = n;
 }
 // accessor for getting value on a specific location
-double matrix::getValue(int r, int c) {
+double matrix::getValue(int r, int c) const {
     if(r < 0 || r >= this->row)
         throw "row not between 0 and vector row size";
     if(c < 0 || c >= this->col)

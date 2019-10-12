@@ -83,7 +83,7 @@ void operations::findPercent(matrix& m) {
     }
 }
 // printing the web page in order of importance;
-void operations::print(matrix& m) {
+void operations::print (matrix& m) const {
     char page = 'A';
     try {
         // printing and formatting

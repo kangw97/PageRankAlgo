@@ -19,6 +19,6 @@ public:
     // finding the importance of each webpage in percent
     void findPercent(matrix& m);
     // printing the web page in order of importance;
-    void print(matrix& m);
+    void print(matrix& m) const;
 };
 #endif //PAGERANKALGO_OPERATIONS_HPP

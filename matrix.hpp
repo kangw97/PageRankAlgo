@@ -28,12 +28,12 @@ public:
     // default destructor
     ~matrix();
     // accessors for row and col
-    inline int getRow() { return row;}
-    inline int getCol() { return col; }
+    inline int getRow() const{ return row;}
+    inline int getCol() const { return col; }
     // mutator for setting value on a specific location
     void setValue(int r, int c, double n);
     // accessor for getting value on a specific location
-    double getValue(int r, int c);
+    double getValue (int r, int c) const;
     // setting all values to 0
     void clear();
     // overloading insertion
