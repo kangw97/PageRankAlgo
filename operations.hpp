@@ -7,7 +7,7 @@
 #ifndef PAGERANKALGO_OPERATIONS_HPP
 #define PAGERANKALGO_OPERATIONS_HPP
 
-class operations: public matrix {
+class operations {
 public:
     // divide each value in each column by the sum of each column.
     // last col, 1 / the number of pages
