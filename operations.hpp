@@ -15,10 +15,10 @@ public:
     // M= 0.85 * S+ (1 -0.85) * Q, creating transition matrix
     void transition(matrix& m);
     // Multiply the transition matrixMby our matrixrank
-    matrix markov(matrix& m);
+    matrix markov(matrix const &m);
     // finding the importance of each webpage in percent
     void findPercent(matrix& m);
     // printing the web page in order of importance;
-    void print(matrix& m) const;
+    void print(matrix const &m) const;
 };
 #endif //PAGERANKALGO_OPERATIONS_HPP

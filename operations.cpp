@@ -49,7 +49,7 @@ void operations::transition(matrix& m) {
     }
 }
 // Multiply the transition matrixMby our matrixrank
-matrix operations::markov(matrix& m) {
+matrix operations::markov(matrix const &m) {
     matrix rank(m.getCol(), 1);
     matrix result1(m.getCol(), 1);
     matrix result2(m.getCol(), 1);
@@ -83,7 +83,7 @@ void operations::findPercent(matrix& m) {
     }
 }
 // printing the web page in order of importance;
-void operations::print (matrix& m) const {
+void operations::print (matrix const &m) const {
     char page = 'A';
     try {
         // printing and formatting
