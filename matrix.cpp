@@ -86,7 +86,7 @@ bool operator== (matrix const &m, matrix const &n) {
 }
 // overloading != operator
 bool operator!= (matrix const &m, matrix const &n) {
-    return !operator==(m,n);
+    return !operator== (m,n);
 }
 // mySwap function
 void mySwap(matrix& first, matrix& second) {
@@ -96,15 +96,7 @@ void mySwap(matrix& first, matrix& second) {
 }
 // overloading += operator
 void operator+= (matrix &m, matrix const &n) {
-    if (m.matri.size() != n.matri.size() || m.matri[0].size() != n.matri[0].size())
-        throw "matrix not same size";
-    else {
-        for(int i = 0; i < n.matri.size(); i++){
-            for(int j = 0; j < n.matri[i].size(); j++) {
-                m.matri[i][j] += n.matri[i][j];
-            }
-        }
-    }
+    m = operator+(m, n);
 }
 // overloading + operator
 matrix operator+ (matrix const &m, matrix const &n) {
@@ -122,15 +114,7 @@ matrix operator+ (matrix const &m, matrix const &n) {
 }
 // overloading -= operator
 void operator-= (matrix &m, matrix const &n) {
-    if (m.matri.size() != n.matri.size() || m.matri[0].size() != n.matri[0].size())
-        throw "matrix not same size";
-    else {
-        for(int i = 0; i < n.matri.size(); i++){
-            for(int j = 0; j < n.matri[i].size(); j++) {
-                m.matri[i][j] -= n.matri[i][j];
-            }
-        }
-    }
+    m = operator- (m, n);
 }
 // overloading + operator
 matrix operator- (matrix const &m, matrix const &n) {
@@ -165,8 +149,5 @@ matrix operator* (matrix const &m, matrix const &n) {
 }
 // overloading *= operator
 void operator*= (matrix &m, matrix const &n) {
-    if(m.matri[0].size() != n.matri.size())
-        throw "matrix can not multiply";
-    else
-        m = m * n;
+    m = operator* (m, n);
 }
